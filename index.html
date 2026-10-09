@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>DSA Autoprestige · Voitures d'occasion et dépôt-vente à Rueil-Malmaison (92)</title>
+<meta name="description" content="DSA Autoprestige, Rueil-Malmaison (92) : dépôt-vente gratuit pour le vendeur, achat-vente et recherche personnalisée de voitures d&#x27;occasion. Contact WhatsApp 06 14 61 28 04.">
+<link rel="canonical" href="https://dsa-autoprestige.fr/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DSA Autoprestige · Rueil-Malmaison">
+<meta property="og:description" content="Dépôt-vente gratuit pour le vendeur, achat-vente et recherche personnalisée de voitures d'occasion dans le 92.">
+<meta property="og:url" content="https://dsa-autoprestige.fr/"><meta property="og:image" content="https://dsa-autoprestige.fr/assets/logo.webp">
+<link rel="icon" href="assets/logo.webp">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;800&family=Manrope:wght@400;500;700&display=swap">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "AutoDealer", "name": "DSA Autoprestige", "telephone": "+33614612804", "email": "dsa.autoprestige@gmail.com", "address": {"@type": "PostalAddress", "addressLocality": "Rueil-Malmaison", "postalCode": "92500", "addressRegion": "Île-de-France", "addressCountry": "FR"}, "areaServed": "Hauts-de-Seine", "sameAs": ["https://www.instagram.com/dsa.autoprestige", "https://www.tiktok.com/@dsa.autoprestige"], "url": "https://dsa-autoprestige.fr/", "logo": "https://dsa-autoprestige.fr/assets/logo.webp"}</script>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* Layout: single-column showroom page — plate-badge hero, services, dépôt-vente steps, contact; one committed black/red look */
+:root{
+  --ink:#0b0b0c; --panel:#141416; --line:#2a2a2e; --text:#f2f1ee; --muted:#a3a2a8;
+  --red:#e3131b; --red-deep:#9e0d13; --plate:#f4f4f2; --plate-blue:#1f3fa8;
+  --display:"Saira Condensed","Arial Narrow",Impact,sans-serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:rgba(11,11,12,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:.04em;text-decoration:none;text-transform:uppercase}
+.logo b{color:var(--red)}
+.links{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.links a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem}
+.links a:hover{color:var(--text)}
+.cta-s{background:var(--red);color:#fff!important;padding:8px 16px;border-radius:4px;font-weight:700}
+@media (max-width:720px){.links a:not(.cta-s){display:none}}
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:auto -10% -40% -10%;height:70%;background:radial-gradient(ellipse at center,rgba(227,19,27,.28),transparent 65%);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center;padding-block:72px 80px}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:48px 56px;gap:36px}}
+.eyebrow{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:700}
+h1{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(2.8rem,7vw,5.4rem);line-height:.92;margin:14px 0 20px;letter-spacing:.005em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--red)}
+.lead{color:var(--muted);font-size:1.12rem;max-width:34rem;margin:0 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:4px;font-weight:700;text-decoration:none;border:2px solid var(--red);transition:background .2s,transform .2s}
+.btn.primary{background:var(--red);color:#fff}
+.btn.primary:hover{background:var(--red-deep);border-color:var(--red-deep)}
+.btn.ghost{color:var(--text);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--text)}
+.btn:focus-visible,.links a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--plate);outline-offset:3px}
+/* sections */
+section{padding-block:80px}
+@media (max-width:720px){section{padding-block:56px}}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(2rem,4.6vw,3.2rem);line-height:1;margin:8px 0 0;text-wrap:balance}
+.sec-head p{color:var(--muted);max-width:30rem;margin:0}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:860px){.services{grid-template-columns:1fr}}
+.svc{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:28px;display:flex;flex-direction:column;gap:12px}
+.svc.feature{border-color:var(--red);background:linear-gradient(180deg,rgba(227,19,27,.12),var(--panel) 55%)}
+.svc .tag{align-self:flex-start;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:4px 10px;border-radius:3px;background:var(--line);color:var(--muted)}
+.svc.feature .tag{background:var(--red);color:#fff}
+.svc h3{font-family:var(--display);font-size:1.75rem;text-transform:uppercase;margin:0;line-height:1.05}
+.svc p{color:var(--muted);margin:0}
+.svc ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.svc li{padding-left:22px;position:relative}
+.svc li::before{content:"";position:absolute;left:0;top:.7em;width:12px;height:2px;background:var(--red)}
+/* depot */
+.depot{background:var(--panel);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.step{padding:24px 22px;border-left:1px solid var(--line);position:relative}
+.step:first-child{border-left:0}
+@media (max-width:860px){.step{border-left:0;border-top:1px solid var(--line)}}
+.step .n{font-family:var(--display);font-weight:800;font-size:3rem;line-height:1;color:var(--red)}
+.step h3{margin:10px 0 6px;font-size:1.08rem}
+.step p{margin:0;color:var(--muted);font-size:.95rem}
+.zero{margin-top:36px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;border:1px dashed var(--red);border-radius:6px;padding:22px 26px}
+.zero strong{font-family:var(--display);font-size:3.4rem;line-height:1;color:var(--red)}
+.zero p{margin:0;max-width:40rem}
+/* why */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media (max-width:860px){.why{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.why{grid-template-columns:1fr}}
+.why div{border-top:2px solid var(--red);padding-top:14px}
+.why h3{margin:0 0 6px;font-size:1.05rem}
+.why p{margin:0;color:var(--muted);font-size:.95rem}
+/* contact */
+.contact .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:48px}
+@media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
+.channels{display:grid;gap:12px;margin-top:24px}
+.channel{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px 18px;text-decoration:none;flex-wrap:wrap}
+.channel span{color:var(--muted);font-size:.85rem}
+.channel strong{font-size:1.05rem;user-select:all}
+.channel:hover{border-color:var(--red)}
+form{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:26px;display:grid;gap:14px}
+form h3{margin:0;font-family:var(--display);text-transform:uppercase;font-size:1.6rem}
+label{display:grid;gap:6px;font-size:.88rem;color:var(--muted);font-weight:500}
+input,select,textarea{font:inherit;color:var(--text);background:var(--ink);border:1px solid var(--line);border-radius:4px;padding:12px 14px;width:100%}
+textarea{min-height:96px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){.row2{grid-template-columns:1fr}}
+button.send{background:var(--red);color:#fff;border:0;border-radius:4px;padding:15px;font:inherit;font-weight:700;font-size:1.02rem;cursor:pointer}
+button.send:hover{background:var(--red-deep)}
+.formnote{font-size:.85rem;color:var(--muted);margin:0}
+.out{display:grid;gap:10px}
+.out a{justify-self:start}
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+/* logo + hero */
+.logo img{height:38px;width:auto;display:block}
+.hero-logo{display:flex;flex-direction:column;align-items:center;gap:22px}
+.hero-logo img{width:100%;max-width:440px;height:auto;filter:drop-shadow(0 18px 40px rgba(227,19,27,.25))}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden;width:100%;max-width:420px}
+.facts div{background:var(--panel);padding:14px 10px;text-align:center}
+.facts strong{display:block;font-family:var(--display);font-size:1.7rem;line-height:1;color:var(--text)}
+.facts span{font-size:.78rem;color:var(--muted);letter-spacing:.04em}
+/* stock */
+.stock{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:960px){.stock{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.stock{grid-template-columns:1fr}}
+.car{background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.car.sold{opacity:.55}
+.car .ph{position:relative;aspect-ratio:4/3;background:#1c1c1f;max-width:100%}
+.car .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.car .ph .none{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:.9rem}
+.badge{position:absolute;top:12px;left:12px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:3px;background:var(--red);color:#fff}
+.badge.res{background:#f59e0b;color:#1a1204}
+.badge.sold{background:#3f3f46;color:#fff}
+.thumbs{display:flex;gap:6px;padding:8px 12px 0;flex-wrap:wrap}
+.thumbs button{width:52px;height:40px;padding:0;border:2px solid transparent;border-radius:3px;overflow:hidden;cursor:pointer;background:none}
+.thumbs button.on{border-color:var(--red)}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.car .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.car h3{font-family:var(--display);font-size:1.45rem;text-transform:uppercase;line-height:1.05;margin:0}
+.car .price{font-family:var(--display);font-size:1.9rem;color:var(--red);line-height:1;font-variant-numeric:tabular-nums}
+.specs{display:flex;flex-wrap:wrap;gap:6px}
+.specs span{font-size:.8rem;border:1px solid var(--line);border-radius:3px;padding:3px 8px;color:var(--muted)}
+.car p.desc{margin:0;color:var(--muted);font-size:.93rem;white-space:pre-line}
+.car .act{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}
+.car .act .btn{padding:11px 16px;font-size:.95rem}
+.adm{display:flex;gap:8px;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:10px}
+.mini{background:transparent;border:1px solid var(--line);color:var(--text);border-radius:4px;padding:7px 12px;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer}
+.mini:hover{border-color:var(--text)}
+.mini.danger{border-color:var(--red);color:var(--red)}
+.empty{border:1px dashed var(--line);border-radius:6px;padding:36px 24px;text-align:center;color:var(--muted)}
+/* admin */
+.adminbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:rgba(227,19,27,.1);border:1px solid var(--red);border-radius:6px;padding:14px 18px;margin-bottom:24px}
+.adminbar p{margin:0;font-size:.92rem}
+.panel{background:var(--panel);border:1px solid var(--red);border-radius:6px;padding:24px;margin-bottom:28px;display:grid;gap:14px}
+.panel h3{margin:0;font-family:var(--display);text-transform:uppercase;font-size:1.6rem}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:720px){.row3{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.row3{grid-template-columns:1fr}}
+.pics{display:flex;gap:8px;flex-wrap:wrap}
+.pics figure{margin:0;position:relative;width:96px;height:72px;border-radius:4px;overflow:hidden;border:1px solid var(--line)}
+.pics img{width:100%;height:100%;object-fit:cover}
+.pics button{position:absolute;top:3px;right:3px;width:22px;height:22px;border-radius:50%;border:0;background:rgba(0,0,0,.75);color:#fff;cursor:pointer;line-height:1}
+.panel .bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.status{font-size:.9rem;color:var(--muted)}
+.status.err{color:var(--red)}
+</style>
+</head>
+<body>
+<div id="root">
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="DSA Autoprestige, accueil"><img src="assets/logo.webp" alt="DSA Autoprestige"></a>
+    <nav class="links" aria-label="Navigation">
+      <a href="#vehicules">Nos véhicules</a>
+      <a href="#services">Services</a>
+      <a href="#depot-vente">Dépôt-vente</a>
+      <a href="#contact">Contact</a>
+      <a class="cta-s" href="https://wa.me/33614612804" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding-block:0">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Rueil-Malmaison · Hauts-de-Seine</div>
+        <h1>Votre voiture, <em>vendue</em> sans y passer vos week-ends</h1>
+        <p class="lead">DSA Autoprestige achète, vend et recherche des véhicules d'occasion pour les particuliers de l'ouest parisien. Et avec le dépôt-vente, on vend votre voiture à votre place, sans frais pour vous.</p>
+        <div class="btns">
+          <a class="btn primary" href="#vehicules">Voir nos véhicules</a>
+          <a class="btn ghost" href="#contact">Faire estimer ma voiture</a>
+        </div>
+      </div>
+      <div class="hero-logo">
+        <img src="assets/logo.webp" alt="">
+        <div class="facts">
+          <div><strong>3</strong><span>services</span></div>
+          <div><strong>0 €</strong><span>pour le vendeur</span></div>
+          <div><strong>92</strong><span>et alentours</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vehicules">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">En stock</div><h2>Nos véhicules</h2></div>
+        <p>Voitures contrôlées, historique vérifié. Une question ou un essai ? Écrivez-nous sur WhatsApp.</p>
+      </div>
+      
+      
+      <div class="stock" id="stock-grid"></div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Ce qu'on fait</div><h2>Trois façons de vous aider</h2></div>
+        <p>Vendre, acheter ou trouver la bonne voiture : on s'occupe de la partie compliquée, vous gardez le contrôle sur le prix.</p>
+      </div>
+      <div class="services">
+        <article class="svc feature">
+          <span class="tag">Le plus demandé</span>
+          <h3>Dépôt-vente</h3>
+          <p>Vous gardez la propriété de votre voiture, on la vend pour vous au prix convenu ensemble.</p>
+          <ul><li>Photos et annonce professionnelles</li><li>Appels, visites et essais encadrés</li><li>Acheteurs filtrés, solvabilité vérifiée</li><li>Démarches administratives prises en charge</li></ul>
+        </article>
+        <article class="svc">
+          <span class="tag">Achat · vente</span>
+          <h3>Véhicules d'occasion</h3>
+          <p>Des voitures contrôlées, préparées et vendues avec un historique clair et les papiers en règle.</p>
+          <ul><li>Vérification de l'historique (Histovec)</li><li>Préparation avant mise en vente</li><li>Rachat de votre véhicule possible</li></ul>
+        </article>
+        <article class="svc">
+          <span class="tag">Sur mesure</span>
+          <h3>Recherche personnalisée</h3>
+          <p>Vous nous donnez le modèle, le budget et vos critères, on cherche et on vérifie pour vous.</p>
+          <ul><li>Sélection des annonces sérieuses</li><li>Contrôle du véhicule et du vendeur</li><li>Négociation et accompagnement à l'achat</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="depot-vente" class="depot">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Dépôt-vente</div><h2>Comment ça se passe</h2></div>
+        <p>Quatre étapes, et vous n'avez qu'à valider le prix et signer.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><h3>On fixe le prix ensemble</h3><p>Estimation basée sur le marché réel (Leboncoin, La Centrale) et l'état de votre voiture.</p></div>
+        <div class="step"><div class="n">2</div><h3>On met en valeur</h3><p>Photos soignées, annonce complète et diffusion sur les bons canaux.</p></div>
+        <div class="step"><div class="n">3</div><h3>On gère les acheteurs</h3><p>Appels, questions, visites et essais : tout passe par nous, uniquement des acheteurs sérieux.</p></div>
+        <div class="step"><div class="n">4</div><h3>Vous êtes payé</h3><p>Vous touchez le prix convenu. On s'occupe de la cession et des papiers.</p></div>
+      </div>
+      <div class="zero">
+        <strong>0 €</strong>
+        <p><b>Gratuit pour vous, vendeur.</b> Notre commission est ajoutée au prix de vente et réglée par l'acheteur. Vous recevez exactement le montant fixé ensemble.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><div><div class="eyebrow">Pourquoi nous</div><h2>Un pro, pas un intermédiaire de plus</h2></div></div>
+      <div class="why">
+        <div><h3>Local</h3><p>Basés à Rueil-Malmaison, on se déplace dans tout le 92 et l'ouest parisien.</p></div>
+        <div><h3>Transparent</h3><p>Prix net vendeur fixé à l'avance, commission annoncée, aucun frais caché.</p></div>
+        <div><h3>En règle</h3><p>Professionnels déclarés : cession, déclaration d'achat et certificat d'immatriculation gérés proprement.</p></div>
+        <div><h3>Joignables</h3><p>Une question ? Réponse rapide sur WhatsApp, par téléphone ou par email.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Contact</div>
+        <h2>Parlons de votre voiture</h2>
+        <p style="color:var(--muted)">Envoyez-nous le modèle, l'année et le kilométrage : on revient vers vous avec une estimation.</p>
+        <div class="channels">
+          <a class="channel" href="https://wa.me/33614612804" target="_blank" rel="noopener"><span>WhatsApp · Téléphone</span><strong>06 14 61 28 04</strong></a>
+          <div class="channel"><span>Email</span><strong>dsa.autoprestige@gmail.com</strong></div>
+          <a class="channel" href="https://www.instagram.com/dsa.autoprestige" target="_blank" rel="noopener"><span>Instagram · TikTok</span><strong>@dsa.autoprestige</strong></a>
+        </div>
+      </div>
+      <form id="f" novalidate>
+        <h3>Demande d'estimation</h3>
+        <div class="row2">
+          <label for="nom">Votre prénom<input id="nom" autocomplete="given-name" placeholder="Ex. Julien"></label>
+          <label for="service">Je souhaite<select id="service"><option>Vendre en dépôt-vente</option><option>Vendre ma voiture (rachat)</option><option>Trouver une voiture</option></select></label>
+        </div>
+        <label for="vehicule">Véhicule (marque, modèle, année, km)<input id="vehicule" placeholder="Ex. Peugeot 308, 2019, 85 000 km"></label>
+        <label for="msg">Précisions (facultatif)<textarea id="msg" placeholder="Prix souhaité, état, options…"></textarea></label>
+        <button class="send" type="submit">Préparer mon message WhatsApp</button>
+        <p class="formnote">Le message s'ouvre dans WhatsApp, vous n'avez plus qu'à l'envoyer.</p>
+        <div class="out" id="out" hidden></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 DSA Autoprestige · Rueil-Malmaison (92)</span>
+    <span>Achat-vente · Dépôt-vente · Recherche personnalisée</span>
+  </div>
+</footer>
+</div>
+<script id="stock" type="application/json">[]</script>
+<script id="app">
+(function(){
+const WA = "33614612804";
+const FONTS = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;800&family=Manrope:wght@400;500;700&display=swap">';
+const $ = id => document.getElementById(id);
+
+
+let stock = [];
+try { stock = JSON.parse($("stock").textContent || "[]"); } catch(e) { stock = []; }
+let art = null, admin = false, editing = null, photos = [];
+
+const fmtN = n => (n === "" || n == null || isNaN(+n)) ? "" : (+n).toLocaleString("fr-FR");
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+
+function waLink(car){
+  const det = car ? [car.annee, car.km ? fmtN(car.km) + " km" : "", car.prix ? fmtN(car.prix) + " €" : ""].filter(Boolean).join(", ") : "";
+  const t = car ? `Bonjour DSA Autoprestige, je suis intéressé(e) par la ${car.titre}${det ? " (" + det + ")" : ""}. Est-elle toujours disponible ?` : "Bonjour DSA Autoprestige";
+  return "https://wa.me/" + WA + "?text=" + encodeURIComponent(t);
+}
+
+function renderStock(){
+  const g = $("stock-grid"); g.textContent = "";
+  const order = { "Disponible":0, "Réservé":1, "Vendu":2 };
+  const list = stock.map((c,i)=>({c,i})).sort((a,b)=> (order[a.c.statut]||0)-(order[b.c.statut]||0) || (b.c.ajout||0)-(a.c.ajout||0));
+  if (!list.length){
+    const e = el("div","empty");
+    e.textContent = admin ? "Aucune voiture pour l'instant. Appuie sur « Ajouter une voiture » pour publier la première." : "Notre prochain arrivage est en préparation. Dites-nous ce que vous cherchez sur WhatsApp, on s'en occupe.";
+    e.style.gridColumn = "1 / -1"; g.appendChild(e); return;
+  }
+  list.forEach(({c,i}) => {
+    const card = el("article","car" + (c.statut === "Vendu" ? " sold" : ""));
+    const ph = el("div","ph");
+    const main = document.createElement("img"); main.alt = c.titre; main.loading = "lazy";
+    if (c.photos && c.photos.length){ main.src = c.photos[0]; ph.appendChild(main); } else ph.appendChild(el("div","none","Photos à venir"));
+    if (c.statut === "Réservé") ph.appendChild(el("span","badge res","Réservé"));
+    else if (c.statut === "Vendu") ph.appendChild(el("span","badge sold","Vendu"));
+    card.appendChild(ph);
+    if (c.photos && c.photos.length > 1){
+      const th = el("div","thumbs");
+      c.photos.forEach((p,k) => {
+        const b = document.createElement("button"); b.type="button"; b.setAttribute("aria-label","Photo " + (k+1)); if (!k) b.className="on";
+        const im = document.createElement("img"); im.src = p; im.alt = ""; b.appendChild(im);
+        b.addEventListener("click", () => { main.src = p; th.querySelectorAll("button").forEach(x=>x.className=""); b.className="on"; });
+        th.appendChild(b);
+      });
+      card.appendChild(th);
+    }
+    const body = el("div","body");
+    body.appendChild(el("h3",null,c.titre));
+    if (c.prix) body.appendChild(el("div","price", fmtN(c.prix) + " €"));
+    const sp = el("div","specs");
+    [c.annee, c.km ? fmtN(c.km)+" km" : "", c.carbu, c.boite].filter(Boolean).forEach(s => sp.appendChild(el("span",null,s)));
+    body.appendChild(sp);
+    if (c.desc) body.appendChild(el("p","desc",c.desc));
+    const act = el("div","act");
+    if (c.statut !== "Vendu"){
+      const a = el("a","btn primary","Je suis intéressé(e)"); a.href = waLink(c); a.target="_blank"; a.rel="noopener"; act.appendChild(a);
+    }
+    body.appendChild(act);
+    if (admin){
+      const ad = el("div","adm");
+      const be = el("button","mini","Modifier"); be.type="button"; be.addEventListener("click", ()=>openPanel(i));
+      ad.appendChild(be);
+      ["Disponible","Réservé","Vendu"].filter(s=>s!==c.statut).forEach(s => {
+        const b = el("button","mini","Passer en " + s.toLowerCase()); b.type="button";
+        b.addEventListener("click", ()=>{ stock[i].statut = s; save("Statut mis à jour"); });
+        ad.appendChild(b);
+      });
+      const bd = el("button","mini danger","Retirer"); bd.type="button";
+      bd.addEventListener("click", () => {
+        if (bd.dataset.armed){ stock.splice(i,1); save("Voiture retirée"); }
+        else { bd.dataset.armed = "1"; bd.textContent = "Confirmer le retrait"; setTimeout(()=>{ delete bd.dataset.armed; bd.textContent="Retirer"; }, 4000); }
+      });
+      ad.appendChild(bd);
+      body.appendChild(ad);
+    }
+    card.appendChild(body);
+    g.appendChild(card);
+  });
+}
+
+function setStatus(t, err){ const s=$("status"); s.textContent=t||""; s.className="status"+(err?" err":""); }
+
+function renderPics(){
+  const p = $("pics"); p.textContent = "";
+  photos.forEach((src,k) => {
+    const f = document.createElement("figure"); const im = document.createElement("img"); im.src = src; im.alt = "Photo " + (k+1);
+    const x = document.createElement("button"); x.type="button"; x.textContent="×"; x.setAttribute("aria-label","Retirer la photo " + (k+1));
+    x.addEventListener("click", ()=>{ photos.splice(k,1); renderPics(); });
+    f.append(im,x); p.appendChild(f);
+  });
+}
+
+function openPanel(i){
+  editing = (i == null) ? null : i;
+  const c = editing == null ? {} : stock[editing];
+  $("paneltitle").textContent = editing == null ? "Nouvelle voiture" : "Modifier la voiture";
+  $("c-titre").value = c.titre || ""; $("c-annee").value = c.annee || ""; $("c-km").value = c.km || ""; $("c-prix").value = c.prix || "";
+  $("c-carbu").value = c.carbu || "Essence"; $("c-boite").value = c.boite || "Manuelle"; $("c-statut").value = c.statut || "Disponible";
+  $("c-desc").value = c.desc || ""; $("c-photos").value = "";
+  photos = (c.photos || []).slice(); renderPics(); setStatus("");
+  $("panel").hidden = false; $("panel").scrollIntoView({behavior:"smooth", block:"start"}); $("c-titre").focus({preventScroll:true});
+}
+
+let heicLib = null;
+function loadHeic(){
+  if (heicLib) return heicLib;
+  heicLib = new Promise((res, rej) => {
+    const s = document.createElement("script");
+    s.src = "https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js";
+    s.onload = () => window.heic2any ? res(window.heic2any) : rej(new Error("heic"));
+    s.onerror = () => { heicLib = null; rej(new Error("heic")); };
+    document.head.appendChild(s);
+  });
+  return heicLib;
+}
+async function toReadable(file){
+  const isHeic = /hei[cf]/i.test(file.type) || /\.(heic|heif)$/i.test(file.name || "");
+  if (!isHeic) return file;
+  setStatus("Conversion de la photo iPhone (HEIC)…");
+  const conv = await loadHeic();
+  const out = await conv({ blob: file, toType: "image/jpeg", quality: 0.85 });
+  return Array.isArray(out) ? out[0] : out;
+}
+async function shrink(file){
+  file = await toReadable(file);
+  return new Promise((res, rej) => {
+    const url = URL.createObjectURL(file); const im = new Image();
+    im.onload = () => {
+      const max = 1100, k = Math.min(1, max / Math.max(im.width, im.height));
+      const cv = document.createElement("canvas"); cv.width = Math.round(im.width*k); cv.height = Math.round(im.height*k);
+      cv.getContext("2d").drawImage(im, 0, 0, cv.width, cv.height); URL.revokeObjectURL(url);
+      res(cv.toDataURL("image/jpeg", 0.7));
+    };
+    im.onerror = () => { URL.revokeObjectURL(url); rej(new Error("image")); };
+    im.src = url;
+  });
+}
+
+function buildDoc(){
+  const reset = (document.head.querySelector("style") || {}).textContent || "";
+  const json = JSON.stringify(stock).replace(/</g, "\\u003c");
+  const body = "<title>DSA Autoprestige</title>" + FONTS
+    + '<style id="site-css">' + $("site-css").textContent + "</style>"
+    + '<template id="tpl">' + $("tpl").innerHTML + "</template>"
+    + '<div id="root"></div>'
+    + '<script id="stock" type="application/json">' + json + "<\/script>"
+    + '<script id="app">' + $("app").textContent + "<\/script>";
+  return '<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>' + reset + "</style></head><body>" + body + "</body></html>";
+}
+
+async function save(okMsg){
+  if (!art) return;
+  const html = buildDoc();
+  if (html.length > 15.5e6){ alertBar("Le site est trop lourd : retire des photos ou des voitures vendues avant d'en ajouter."); return; }
+  setStatus("Publication en cours…"); alertBar("Publication en cours…");
+  try {
+    await art.publish(html);
+    alertBar(okMsg + " ✓ Le site se recharge.");
+  } catch(e) {
+    const c = e && e.code;
+    const msg = c === "conflict" ? "Le site a été modifié ailleurs entre-temps : il se recharge avec la dernière version, refais ta modification."
+      : (c === "not_writer" || c === "not_granted" || c === "not_declared") ? "Ce compte ne peut pas modifier le site."
+      : c === "too_large" ? "Le site est trop lourd : retire des photos ou des voitures vendues."
+      : c === "rate_limited" ? "Trop de modifications d'un coup : attends une minute et réessaie."
+      : "La publication n'a pas marché (" + (c || "erreur") + "). Réessaie.";
+    setStatus(msg, true); alertBar(msg, true);
+    if (c === "not_writer" || c === "not_granted" || c === "not_declared"){ admin = false; $("adminbar").hidden = true; $("panel").hidden = true; renderStock(); }
+  }
+}
+function alertBar(t, err){ const b = $("adminbar"); if (b.hidden) return; b.querySelector("p").innerHTML = ""; const s = el("b", null, t); if (err) s.style.color = "var(--red)"; b.querySelector("p").appendChild(s); }
+
+$("c-photos") && $("c-photos").addEventListener("change", async e => {
+  const files = [...e.target.files].slice(0, Math.max(0, 4 - photos.length));
+  if (e.target.files.length > files.length) setStatus("4 photos maximum par voiture.", true);
+  let bad = 0;
+  for (const f of files){ try { photos.push(await shrink(f)); renderPics(); } catch(_) { bad++; } }
+  e.target.value = ""; renderPics();
+  setStatus(bad ? bad + " photo(s) n'ont pas pu être lues. Essaie en JPEG ou PNG." : (files.length ? "Photos prêtes ✓" : ""), !!bad);
+});
+$("cancel") && $("cancel").addEventListener("click", () => { $("panel").hidden = true; editing = null; });
+$("addcar") && $("addcar").addEventListener("click", () => openPanel(null));
+$("panel") && $("panel").addEventListener("submit", e => {
+  e.preventDefault();
+  const titre = $("c-titre").value.trim();
+  if (!titre){ setStatus("Indique au moins la marque et le modèle.", true); return; }
+  const num = id => $(id).value.replace(/[^\d]/g, "");
+  const car = { titre, annee: num("c-annee"), km: num("c-km"), prix: num("c-prix"), carbu: $("c-carbu").value, boite: $("c-boite").value,
+    statut: $("c-statut").value, desc: $("c-desc").value.trim(), photos: photos.slice(), ajout: editing == null ? Date.now() : (stock[editing].ajout || Date.now()) };
+  if (editing == null) stock.push(car); else stock[editing] = car;
+  save(editing == null ? "Voiture ajoutée" : "Voiture modifiée");
+});
+
+$("f").addEventListener("submit", e => {
+  e.preventDefault();
+  const nom = $("nom").value.trim(), veh = $("vehicule").value.trim(), out = $("out");
+  out.textContent = "";
+  if (!nom || !veh){ const p = el("p","formnote","Indiquez au moins votre prénom et votre véhicule."); p.style.color="var(--red)"; out.appendChild(p); out.hidden=false; return; }
+  const text = `Bonjour DSA Autoprestige, je m'appelle ${nom}. ${$("service").value} : ${veh}.${$("msg").value.trim() ? " " + $("msg").value.trim() : ""}`;
+  const a = el("a","btn primary","Ouvrir WhatsApp"); a.target="_blank"; a.rel="noopener"; a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(text);
+  out.append(a, el("p","formnote","Si WhatsApp ne s'ouvre pas, écrivez-nous au 06 14 61 28 04 avec ce message : « " + text + " »")); out.hidden = false;
+});
+
+renderStock();
+/* Stock en direct : lu dans le Google Sheet « Stock site DSA » rempli par le Studio Site */
+(function(){
+  const SHEET = "1zFC5ymWnyzZL_nGXaYGfoQbH2r7Wg0vQFILsxUlIaz4";
+  const val = c => (c && c.v != null) ? String(c.v) : "";
+  const num = c => { const x = c && c.v != null ? String(c.v).replace(/[^\d]/g, "") : ""; return x; };
+  window.__dsaStock = function(res){
+    try {
+      if (!res || res.status === "error" || !res.table) return;
+      const labels = res.table.cols.map(c => (c.label || "").trim());
+      const ix = n => labels.indexOf(n);
+      const list = [];
+      (res.table.rows || []).forEach(r => {
+        const c = r.c || [];
+        const g = n => c[ix(n)];
+        if (!val(g("id")) || val(g("en_ligne")).toUpperCase() === "NON") return;
+        const ids = val(g("photos")).split(/\s+/).filter(Boolean);
+        list.push({
+          titre: [val(g("titre")), val(g("version"))].filter(Boolean).join(" "),
+          annee: num(g("annee")), km: num(g("km")), prix: num(g("prix")),
+          carbu: val(g("carburant")), boite: val(g("boite")),
+          statut: val(g("statut")) || "Disponible",
+          desc: [val(g("point_fort")), val(g("description"))].filter(Boolean).join(" · "),
+          photos: ids.map(id => "https://lh3.googleusercontent.com/d/" + id + "=w1600"),
+          ajout: +num(g("ajout")) || 0
+        });
+      });
+      stock = list;
+      renderStock();
+    } catch(e) {}
+  };
+  const s = document.createElement("script");
+  s.src = "https://docs.google.com/spreadsheets/d/" + SHEET + "/gviz/tq?tqx=out:json;responseHandler:__dsaStock&sheet=Stock&headers=1&_=" + Date.now();
+  s.async = true;
+  document.body.appendChild(s);
+})();
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dsa-autoprestige.fr/sitemap.xml
