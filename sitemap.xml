@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://dsa-autoprestige.fr/</loc></url>
+<url><loc>https://dsa-autoprestige.fr/vehicules/</loc></url>
+<url><loc>https://dsa-autoprestige.fr/depot-vente/</loc></url>
+<url><loc>https://dsa-autoprestige.fr/services/</loc></url>
+<url><loc>https://dsa-autoprestige.fr/contact/</loc></url>
 </urlset>
