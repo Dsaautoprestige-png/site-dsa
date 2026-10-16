@@ -510,3 +510,10 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--ligne);padding-top:18p
   .hero-in{transform:none;opacity:1}
 }
 .channel,.filters button{position:relative;overflow:hidden}
+/* « Pourquoi DSA » : cartes entières, empilées, qui arrivent des côtés */
+.js .rv.from-r{transform:translateX(30px)}
+.js .rv.from-r.in{transform:none}
+.hs article{min-height:0}
+.hs article h3{margin-top:40px}
+.js .hs article.rv:not(.in) b{transform:scale(.6) rotate(-10deg);opacity:0}
+.hs article b{transition:transform .8s var(--ease) calc(var(--d,0s) + .2s),opacity .6s ease calc(var(--d,0s) + .2s)}

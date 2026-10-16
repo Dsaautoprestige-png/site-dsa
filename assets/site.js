@@ -236,7 +236,7 @@
 (function(){
   const d = document.documentElement;
   const calm = matchMedia("(prefers-reduced-motion:reduce)").matches;
-  const SEL = ".head,.car,.step,.svc article,.why>div,.promises>div,.zero,.channel,form.wa,.faq details,.final .wrap>*,.spec>div,.info>*,.gallery,.hours,.cars>.empty";
+  const SEL = ".hs article,.head,.car,.step,.svc article,.why>div,.promises>div,.zero,.channel,form.wa,.faq details,.final .wrap>*,.spec>div,.info>*,.gallery,.hours,.cars>.empty";
   let io = null;
   if (!calm && "IntersectionObserver" in window) {
     io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
@@ -245,7 +245,7 @@
     (root || document).querySelectorAll(SEL).forEach(n => {
       if (n.classList.contains("rv")) return;
       n.classList.add("rv");
-      if (n.matches(".channel,.svc article")) n.classList.add("from-l");
+      if (n.matches(".channel,.svc article,.hs article:nth-child(odd)")) n.classList.add("from-l"); if (n.matches(".hs article:nth-child(even)")) n.classList.add("from-r");
       const sib = n.parentElement ? [...n.parentElement.children].filter(x => x.matches(SEL)) : [];
       const k = Math.max(0, sib.indexOf(n));
       n.style.setProperty("--d", Math.min(k, 5) * 0.08 + "s");
@@ -362,7 +362,7 @@
   const plateau = p => { const q = p * (hsN - 1), k = Math.min(hsN - 2, Math.floor(q)), t = q - k; const u = t < .3 ? 0 : t > .7 ? 1 : (t - .3) / .4; return (k + u * u * (3 - 2 * u)) / (hsN - 1); };
   function hsSize(){
     if (!hs) return;
-    const on = !calm && matchMedia("(max-width:959px)").matches;
+    const on = false; /* défilement latéral désactivé : les cartes restent entières */
     hs.classList.toggle("go", on);
     if (!on) { hs.style.removeProperty("--hsh"); return; }
     const track = hs.querySelector(".hs-track"), pin = hs.querySelector(".hs-pin");
