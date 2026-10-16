@@ -285,3 +285,122 @@
     document.addEventListener("pointerout", e => { const c = e.target.closest && e.target.closest(".car"); if (c && !c.contains(e.relatedTarget)) { c.classList.remove("tilt"); c.style.transform = ""; } });
   }
 })();
+
+/* ---------- niveau max ---------- */
+(function(){
+  const d = document.documentElement;
+  const calm = matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const late = d.classList.contains("intro-on") ? 1450 : d.classList.contains("wipe-out") ? 350 : 0;
+
+  /* titres lettre par lettre */
+  document.querySelectorAll(".head h2,.page-head h1,.final h2,.hs-head h2").forEach(h => {
+    if (h.querySelector("*")) return;
+    const txt = h.textContent.trim(); h.setAttribute("aria-label", txt); h.textContent = "";
+    let i = 0;
+    txt.split(/\s+/).forEach((word, wi) => {
+      if (wi) h.appendChild(document.createTextNode(" "));
+      const w = document.createElement("span"); w.className = "w"; w.setAttribute("aria-hidden", "true");
+      [...word].forEach(ch => { const c = document.createElement("span"); c.className = "c"; c.textContent = ch; c.style.setProperty("--i", i++); w.appendChild(c); });
+      h.appendChild(w);
+    });
+    h.classList.add("split");
+  });
+
+  /* compte-tours de l'intro */
+  const tach = document.querySelector(".intro .tach");
+  if (tach && d.classList.contains("intro-on")) { const t0 = performance.now(); const run = t => { const k = Math.min(1, (t - t0) / 1000); tach.textContent = String(Math.round(240 * (1 - Math.pow(1 - k, 3)))).padStart(3, "0"); if (k < 1) requestAnimationFrame(run); }; requestAnimationFrame(run); }
+
+  /* chiffres qui défilent */
+  function count(b){
+    if (b.dataset.done) return; b.dataset.done = 1;
+    const from = +b.dataset.from || 0, to = +b.dataset.to || 0, suf = b.dataset.suf || "";
+    if (calm) { b.textContent = to + suf; return; }
+    const t0 = performance.now(), dur = 1100;
+    const run = t => { const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 4); b.textContent = Math.round(from + (to - from) * e).toLocaleString("fr-FR") + suf; if (k < 1) requestAnimationFrame(run); };
+    requestAnimationFrame(run);
+  }
+  document.querySelectorAll(".kpis [data-to]").forEach(b => setTimeout(() => count(b), late + 650));
+
+  /* étiquettes brouillées puis fixées */
+  const GLY = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#/";
+  function scramble(k){
+    if (calm || k.dataset.done) return; k.dataset.done = 1;
+    const final = k.textContent; let f = 0;
+    const run = () => { f++; k.textContent = [...final].map((ch, j) => ch === " " || ch === "·" || j < f / 2 ? ch : GLY[Math.random() * GLY.length | 0]).join(""); if (f / 2 < final.length) setTimeout(run, 28); else k.textContent = final; };
+    run();
+  }
+
+  /* déclencheurs à l'écran */
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return; const n = e.target; io.unobserve(n);
+      if (n.matches("[data-to]")) setTimeout(() => count(n), 300);
+      else if (n.matches(".kick")) scramble(n);
+      else n.classList.add("on");
+    }), { threshold: 0.3 });
+    document.querySelectorAll(".zero [data-to],.kick,.hs").forEach(n => io.observe(n));
+  }
+
+  /* transition rouge entre les pages */
+  if (!calm) {
+    document.addEventListener("click", e => {
+      const a = e.target.closest && e.target.closest("a[href]"); if (!a) return;
+      if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target === "_blank" || a.hasAttribute("download")) return;
+      const u = new URL(a.href, location.href);
+      if (u.origin !== location.origin || (u.pathname === location.pathname && u.search === location.search)) return;
+      e.preventDefault();
+      try { sessionStorage.setItem("dsaWipe", "1"); } catch (x) {}
+      d.classList.remove("wipe-out"); d.classList.add("wipe-in");
+      setTimeout(() => { location.href = u.href; }, 460);
+    });
+    addEventListener("pageshow", e => { if (e.persisted) d.classList.remove("wipe-in", "wipe-out"); });
+  }
+
+  /* défilement latéral épinglé */
+  const hs = document.querySelector(".hs");
+  let hsDist = 0, hsStep = 0, hsN = 0;
+  const plateau = p => { const q = p * (hsN - 1), k = Math.min(hsN - 2, Math.floor(q)), t = q - k; const u = t < .3 ? 0 : t > .7 ? 1 : (t - .3) / .4; return (k + u * u * (3 - 2 * u)) / (hsN - 1); };
+  function hsSize(){
+    if (!hs) return;
+    const on = !calm && matchMedia("(max-width:959px)").matches;
+    hs.classList.toggle("go", on);
+    if (!on) { hs.style.removeProperty("--hsh"); return; }
+    const track = hs.querySelector(".hs-track"), pin = hs.querySelector(".hs-pin");
+    const cards = track.children, gap = parseFloat(getComputedStyle(track).columnGap) || 14;
+    hsStep = cards.length ? cards[0].offsetWidth + gap : 0; hsN = cards.length;
+    hsDist = Math.max(0, (hsN - 1) * hsStep);
+    hs.style.setProperty("--hsh", (pin.offsetHeight + hsDist) + "px");
+  }
+
+  /* effets liés au défilement */
+  const hero = document.querySelector(".hero");
+  const marquees = [...document.querySelectorAll(".ticker>div,.mega>div")];
+  const touch = matchMedia("(hover:none)").matches;
+  let lastY = scrollY, busy = false;
+  function onFrame(){
+    busy = false; if (calm) return;
+    const y = scrollY, vh = innerHeight, v = y - lastY; lastY = y;
+    if (hero && y < vh * 1.5) hero.style.setProperty("--hp", Math.min(1, Math.max(0, y / (vh * 0.9))).toFixed(3));
+    if (hs && hs.classList.contains("go")) {
+      const r = hs.getBoundingClientRect(), top = parseFloat(getComputedStyle(hs.querySelector(".hs-pin")).top) || 64;
+      const p = hsDist ? Math.min(1, Math.max(0, (top - r.top) / hsDist)) : 0;
+      hs.style.setProperty("--hsx", (-(hsN > 1 ? plateau(p) : 0) * hsDist).toFixed(1) + "px"); hs.style.setProperty("--hx", p.toFixed(3));
+    }
+    marquees.forEach(m => { const a = m.getAnimations && m.getAnimations()[0]; if (!a) return; const rate = 1 + Math.min(6, Math.abs(v) * 0.25); a.playbackRate = (v < -1 ? -1 : 1) * rate; clearTimeout(m._t); m._t = setTimeout(() => { a.playbackRate = 1; }, 160); });
+    if (touch) document.querySelectorAll(".car.in").forEach(c => { const r = c.getBoundingClientRect(); if (r.bottom < 0 || r.top > vh) return; const off = (r.top + r.height / 2 - vh / 2) / vh; c.style.setProperty("--rx", (off * 10).toFixed(2) + "deg"); });
+  }
+  const kick = () => { if (!busy) { busy = true; requestAnimationFrame(onFrame); } };
+  addEventListener("scroll", kick, { passive: true });
+  addEventListener("resize", () => { hsSize(); kick(); });
+  addEventListener("load", () => { hsSize(); kick(); });
+  hsSize(); onFrame();
+
+  /* onde au toucher */
+  if (!calm) document.addEventListener("pointerdown", e => {
+    const t = e.target.closest && e.target.closest(".btn,.actionbar a,.car,.filters button,.channel"); if (!t) return;
+    const r = t.getBoundingClientRect(), s = document.createElement("span"); s.className = "rip";
+    s.style.left = (e.clientX - r.left) + "px"; s.style.top = (e.clientY - r.top) + "px";
+    if (getComputedStyle(t).position === "static") t.style.position = "relative";
+    t.appendChild(s); setTimeout(() => s.remove(), 650);
+  }, { passive: true });
+})();
