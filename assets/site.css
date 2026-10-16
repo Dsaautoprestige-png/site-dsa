@@ -489,7 +489,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--ligne);padding-top:18p
   .js .hs.go article{width:calc(100vw - var(--gut) * 2 - 36px);min-height:min(56svh,420px)}
   .js .hs.go .hs-bar{display:block}
 }
-@media (min-width:960px){.hs-track{grid-template-columns:repeat(4,minmax(0,1fr));max-width:var(--maxw);margin:0 auto}.hs-pin{padding-block:110px}}
+@media (min-width:960px){.hs-track{grid-template-columns:repeat(4,minmax(0,1fr));width:100%;max-width:var(--maxw);margin:0 auto}.hs-pin{padding-block:110px}}
 
 /* « tilt » doux des cartes au défilement (téléphone) */
 @media (hover:none){.car.in{transform:perspective(900px) rotateX(var(--rx,0deg))}}
@@ -517,3 +517,6 @@ footer .legal{grid-column:1/-1;border-top:1px solid var(--ligne);padding-top:18p
 .hs article h3{margin-top:40px}
 .js .hs article.rv:not(.in) b{transform:scale(.6) rotate(-10deg);opacity:0}
 .hs article b{transition:transform .8s var(--ease) calc(var(--d,0s) + .2s),opacity .6s ease calc(var(--d,0s) + .2s)}
+.hs-track{width:100%}
+.hs article b{font-size:4.6rem}
+.hs article h3{margin-top:72px}
