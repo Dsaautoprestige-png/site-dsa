@@ -111,7 +111,7 @@
   document.querySelectorAll("[data-livecount]").forEach(async n => {
     const list = await loadStock(); if (!list) return;
     const k = list.filter(c => c.statut !== "Vendu").length;
-    if (k) { n.innerHTML = `<b>${k}</b> voiture${k > 1 ? "s" : ""} disponible${k > 1 ? "s" : ""} en ce moment`; n.hidden = false; }
+    if (k) { n.innerHTML = `<b>0</b> voiture${k > 1 ? "s" : ""} disponible${k > 1 ? "s" : ""} en ce moment`; n.hidden = false; const b = n.querySelector("b"); let v = 0; const step = () => { v++; b.textContent = v; if (v < k) setTimeout(step, Math.max(40, 500 / k)); }; setTimeout(step, 900); }
   });
 
   /* grilles de voitures */
@@ -169,7 +169,7 @@
     const thumbs = el("div", "thumbs");
     const show = k => {
       if (!ph.length) return; i = (k + ph.length) % ph.length;
-      big.src = img(ph[i], 1600); main.style.setProperty("--bg", `url("${img(ph[i], 120)}")`);
+      big.classList.remove("sw"); void big.offsetWidth; big.classList.add("sw"); big.src = img(ph[i], 1600); main.style.setProperty("--bg", `url("${img(ph[i], 120)}")`);
       pos.textContent = (i + 1) + " / " + ph.length;
       thumbs.querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-current", j === i));
       const t = thumbs.children[i]; if (t && t.scrollIntoView) t.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
@@ -229,5 +229,59 @@
     let x0 = null, y0 = null;
     node.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
     node.addEventListener("touchend", e => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) cb(dx < 0 ? 1 : -1); x0 = null; });
+  }
+})();
+
+/* ---------- mouvement ---------- */
+(function(){
+  const d = document.documentElement;
+  const calm = matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const SEL = ".head,.car,.step,.svc article,.why>div,.promises>div,.zero,.channel,form.wa,.faq details,.final .wrap>*,.spec>div,.info>*,.gallery,.hours,.cars>.empty";
+  let io = null;
+  if (!calm && "IntersectionObserver" in window) {
+    io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  }
+  function scan(root){
+    (root || document).querySelectorAll(SEL).forEach(n => {
+      if (n.classList.contains("rv")) return;
+      n.classList.add("rv");
+      if (n.matches(".channel,.svc article")) n.classList.add("from-l");
+      const sib = n.parentElement ? [...n.parentElement.children].filter(x => x.matches(SEL)) : [];
+      const k = Math.max(0, sib.indexOf(n));
+      n.style.setProperty("--d", Math.min(k, 5) * 0.08 + "s");
+      if (io) io.observe(n); else n.classList.add("in");
+    });
+  }
+  scan();
+  new MutationObserver(ms => { if (ms.some(m => m.addedNodes.length)) scan(); }).observe(document.querySelector("main") || document.body, { childList: true, subtree: true });
+  requestAnimationFrame(() => document.querySelectorAll(".page-head").forEach(p => p.classList.add("ready")));
+
+  /* barre de progression, parallaxe du héros, bandeaux qui penchent avec la vitesse */
+  const bar = document.querySelector(".progress");
+  const pic = document.querySelector(".hero-photo picture");
+  const skews = document.querySelectorAll(".ticker>div,.mega>div");
+  let lastY = scrollY, skew = 0, ticking = false;
+  function frame(){
+    ticking = false;
+    const y = scrollY, h = d.scrollHeight - innerHeight;
+    if (bar) bar.style.setProperty("--p", h > 0 ? Math.min(1, y / h) : 0);
+    if (calm) return;
+    if (pic && y < innerHeight * 1.2) pic.style.setProperty("--py", (y * 0.25).toFixed(1) + "px");
+    const v = Math.max(-14, Math.min(14, (y - lastY) * 0.35)); lastY = y;
+    skew += (v - skew) * 0.3;
+    skews.forEach(s => s.style.setProperty("--skew", (-skew).toFixed(2) + "deg"));
+    if (Math.abs(skew) > 0.05) { ticking = true; requestAnimationFrame(frame); }
+  }
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+  frame();
+
+  /* cartes qui s'inclinent sous la souris (ordinateur) */
+  if (!calm && matchMedia("(hover:hover) and (pointer:fine)").matches) {
+    document.addEventListener("pointermove", e => {
+      const c = e.target.closest && e.target.closest(".car.in"); if (!c) return;
+      const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      c.classList.add("tilt"); c.style.transform = `perspective(900px) rotateY(${x * 7}deg) rotateX(${-y * 7}deg) translateY(-4px)`;
+    });
+    document.addEventListener("pointerout", e => { const c = e.target.closest && e.target.closest(".car"); if (c && !c.contains(e.relatedTarget)) { c.classList.remove("tilt"); c.style.transform = ""; } });
   }
 })();
